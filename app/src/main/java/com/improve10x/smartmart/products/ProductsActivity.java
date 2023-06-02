@@ -1,8 +1,10 @@
-package com.improve10x.smartmart;
+package com.improve10x.smartmart.products;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.improve10x.smartmart.R;
 
 public class ProductsActivity extends AppCompatActivity {
 

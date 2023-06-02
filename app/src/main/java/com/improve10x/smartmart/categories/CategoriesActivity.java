@@ -1,6 +1,5 @@
 package com.improve10x.smartmart.categories;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
@@ -8,7 +7,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.improve10x.smartmart.BaseActivity;
-import com.improve10x.smartmart.ProductsActivity;
+import com.improve10x.smartmart.products.ProductsActivity;
 import com.improve10x.smartmart.databinding.ActivityCategoriesBinding;
 
 import java.util.ArrayList;
