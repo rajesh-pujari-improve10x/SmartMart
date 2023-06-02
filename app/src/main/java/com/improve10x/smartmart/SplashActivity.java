@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.improve10x.smartmart.categories.CategoriesActivity;
 import com.improve10x.smartmart.databinding.ActivitySplashBinding;
 
 public class SplashActivity extends AppCompatActivity {
