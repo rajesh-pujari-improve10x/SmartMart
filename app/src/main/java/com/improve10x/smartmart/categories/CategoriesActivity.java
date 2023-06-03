@@ -19,9 +19,11 @@ import retrofit2.Response;
 
 public class CategoriesActivity extends BaseActivity {
 
-    ActivityCategoriesBinding binding;
-    CategoriesAdapter categoriesAdapter;
-    ArrayList<String> categories = new ArrayList<String>();
+    private ActivityCategoriesBinding binding;
+
+    private CategoriesAdapter categoriesAdapter;
+
+    private ArrayList<String> categories = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,13 +60,10 @@ public class CategoriesActivity extends BaseActivity {
     private void setupCategoriesAdapter() {
         categoriesAdapter = new CategoriesAdapter();
         categoriesAdapter.setData(categories);
-        categoriesAdapter.setOnItemActionListener(new OnItemActionListener() {
-            @Override
-            public void onClick(String categoryName) {
-                Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
-                intent.putExtra("category", categoryName);
-                startActivity(intent);
-            }
+        categoriesAdapter.setOnItemActionListener(categoryName -> {
+            Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
+            intent.putExtra("category", categoryName);
+            startActivity(intent);
         });
     }
 }

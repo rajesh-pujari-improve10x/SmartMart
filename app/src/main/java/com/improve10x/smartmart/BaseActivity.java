@@ -1,6 +1,7 @@
 package com.improve10x.smartmart;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,5 +22,9 @@ public class BaseActivity extends AppCompatActivity {
     private void setupApiService() {
         FakeApi fakeApi = new FakeApi();
         fakeAPiServices = fakeApi.createFakeApiServices();
+    }
+
+    protected void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }
