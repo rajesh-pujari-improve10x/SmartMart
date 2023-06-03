@@ -14,7 +14,9 @@ public interface FakeAPiServices {
     @GET(Constants.CATEGORIES_END_POINT)
     Call<List<String>> fetchCategories();
 
-    @GET("products/category/{categoryName}")
+    @GET(Constants.PRODUCTS_END_POINT + "/{categoryName}")
     Call<List<Product>> fetchProducts(@Path("categoryName") String categoryName);
 
+    @GET(Constants.PRODUCT_DETAILS_END_POINT + "/{productId}")
+    Call<Product> fetchProductDetails(@Path("productId") int productId);
 }

@@ -1,5 +1,7 @@
 package com.improve10x.smartmart.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Product {
 
     private Integer id;
@@ -8,9 +10,20 @@ public class Product {
 
     private Float price;
 
+    @SerializedName("image")
     private String imageUrl;
 
     public Rating rating;
+
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Integer getId() {
         return id;
