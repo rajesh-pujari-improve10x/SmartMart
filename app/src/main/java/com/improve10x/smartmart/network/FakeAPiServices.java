@@ -1,6 +1,7 @@
 package com.improve10x.smartmart.network;
 
 import com.improve10x.smartmart.Constants;
+import com.improve10x.smartmart.cart.Cart;
 import com.improve10x.smartmart.models.Product;
 
 import java.util.List;
@@ -19,4 +20,7 @@ public interface FakeAPiServices {
 
     @GET(Constants.PRODUCT_DETAILS_END_POINT + "/{productId}")
     Call<Product> fetchProductDetails(@Path("productId") int productId);
+
+    @GET("carts/1?userId=1")
+    Call<Cart> fetchCartProducts();
 }

@@ -1,12 +1,17 @@
 package com.improve10x.smartmart.categories;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.improve10x.smartmart.BaseActivity;
+import com.improve10x.smartmart.R;
+import com.improve10x.smartmart.cart.CartProductsActivity;
 import com.improve10x.smartmart.products.ProductsActivity;
 import com.improve10x.smartmart.databinding.ActivityCategoriesBinding;
 
@@ -34,6 +39,23 @@ public class CategoriesActivity extends BaseActivity {
         fetchCategories();
         setupCategoriesAdapter();
         setupCategoriesRv();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.cart_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.cart) {
+            Intent intent = new Intent(CategoriesActivity.this, CartProductsActivity.class);
+            startActivity(intent);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 
     private void fetchCategories() {
