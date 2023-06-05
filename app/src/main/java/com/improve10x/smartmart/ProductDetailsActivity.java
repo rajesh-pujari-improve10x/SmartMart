@@ -1,8 +1,14 @@
 package com.improve10x.smartmart;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
+import com.improve10x.smartmart.cart.CartProductsActivity;
 import com.improve10x.smartmart.databinding.ActivityProductDetailsBinding;
 import com.improve10x.smartmart.models.Product;
 
@@ -26,6 +32,23 @@ public class ProductDetailsActivity extends BaseActivity {
             productId = getIntent().getIntExtra(Constants.KEY_PRODUCT, productId);
         }
         fetchProductDetails();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.cart_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.cart) {
+            Intent intent = new Intent(ProductDetailsActivity.this, CartProductsActivity.class);
+            startActivity(intent);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 
     private void fetchProductDetails() {

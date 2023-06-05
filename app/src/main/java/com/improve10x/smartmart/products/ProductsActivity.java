@@ -1,10 +1,13 @@
 package com.improve10x.smartmart.products;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -12,6 +15,7 @@ import com.improve10x.smartmart.BaseActivity;
 import com.improve10x.smartmart.Constants;
 import com.improve10x.smartmart.ProductDetailsActivity;
 import com.improve10x.smartmart.R;
+import com.improve10x.smartmart.cart.CartProductsActivity;
 import com.improve10x.smartmart.databinding.ActivityProductsBinding;
 import com.improve10x.smartmart.models.Product;
 import com.improve10x.smartmart.network.FakeAPiServices;
@@ -50,6 +54,23 @@ public class ProductsActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         fetchProductCategory();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.cart_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.cart) {
+            Intent intent = new Intent(ProductsActivity.this, CartProductsActivity.class);
+            startActivity(intent);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 
     private void showProgressBar() {
